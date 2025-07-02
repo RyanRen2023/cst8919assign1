@@ -1,0 +1,38 @@
+## Azure test
+### Test Login with Invalid Credentials
+POST https://lab2login-anh5c9eng9gsbka0.canadacentral-01.azurewebsites.net/login
+Content-Type: application/x-www-form-urlencoded
+Accept: text/html
+
+username=admin&password=wrongpassword
+
+### Test Login with Valid Credentials
+POST https://lab2login-anh5c9eng9gsbka0.canadacentral-01.azurewebsites.net/login
+Content-Type: application/x-www-form-urlencoded
+Accept: text/html
+
+username=admin&password=password123
+
+
+
+## ================================
+## local test
+
+### Test Login with Invalid Credentials
+POST http://localhost:8000/login
+Content-Type: application/x-www-form-urlencoded
+Accept: text/html
+
+username=admin&password=wrongpassword
+
+### Test Login with Valid Credentials
+POST http://localhost:8000/login
+Content-Type: application/x-www-form-urlencoded
+Accept: text/html
+
+username=admin&password=password123
+
+
+### Test Login with Valid Credentials
+get http://localhost:8000/server-info
+Content-Type: application/x-www-form-urlencoded

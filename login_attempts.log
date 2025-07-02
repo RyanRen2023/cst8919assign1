@@ -1,0 +1,461 @@
+2025-06-15 11:02:34,037 - WARNING -  * Debugger is active!
+2025-06-15 11:02:34,044 - INFO -  * Debugger PIN: 760-432-386
+2025-06-15 11:02:36,062 - INFO -  * Detected change in '/Users/ren/Workspace/cloud/cst8919/lab2/app.py', reloading
+2025-06-15 11:02:36,208 - WARNING -  * Debugger is active!
+2025-06-15 11:02:36,212 - INFO -  * Debugger PIN: 760-432-386
+2025-06-15 11:03:41,718 - INFO -  * Detected change in '/Users/ren/Workspace/cloud/cst8919/lab2/app.py', reloading
+2025-06-15 11:03:41,902 - WARNING -  * Debugger is active!
+2025-06-15 11:03:41,907 - INFO -  * Debugger PIN: 760-432-386
+2025-06-15 11:04:01,607 - INFO - 127.0.0.1 - - [15/Jun/2025 11:04:01] "GET / HTTP/1.1" 200 -
+2025-06-15 11:04:07,215 - INFO - 127.0.0.1 - - [15/Jun/2025 11:04:07] "GET /login HTTP/1.1" 200 -
+2025-06-15 11:04:28,138 - INFO - Successful login attempt - Username: admin
+2025-06-15 11:04:28,139 - INFO - 127.0.0.1 - - [15/Jun/2025 11:04:28] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-06-15 11:04:28,144 - INFO - 127.0.0.1 - - [15/Jun/2025 11:04:28] "GET / HTTP/1.1" 200 -
+2025-06-15 11:04:45,178 - INFO - 127.0.0.1 - - [15/Jun/2025 11:04:45] "GET /login HTTP/1.1" 200 -
+2025-06-15 11:04:50,426 - WARNING - Failed login attempt - Username: ren00055@algonquinlive.com
+2025-06-15 11:04:50,427 - INFO - 127.0.0.1 - - [15/Jun/2025 11:04:50] "POST /login HTTP/1.1" 200 -
+2025-06-15 12:03:35,597 - WARNING - Failed login attempt - Username: admin
+2025-06-15 12:03:35,598 - ERROR - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/ren/Workspace/cloud/cst8919/lab2/app.py", line 35, in login
+    flash('Invalid username or password', 'error')
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/helpers.py", line 323, in flash
+    session["_flashes"] = flashes
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/sessions.py", line 102, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-15 12:03:36,759 - WARNING - Failed login attempt - Username: admin
+2025-06-15 12:03:36,760 - ERROR - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/ren/Workspace/cloud/cst8919/lab2/app.py", line 35, in login
+    flash('Invalid username or password', 'error')
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/helpers.py", line 323, in flash
+    session["_flashes"] = flashes
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/sessions.py", line 102, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-15 12:03:37,229 - WARNING - Failed login attempt - Username: admin
+2025-06-15 12:03:37,230 - ERROR - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/ren/Workspace/cloud/cst8919/lab2/app.py", line 35, in login
+    flash('Invalid username or password', 'error')
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/helpers.py", line 323, in flash
+    session["_flashes"] = flashes
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/sessions.py", line 102, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-15 12:03:37,432 - WARNING - Failed login attempt - Username: admin
+2025-06-15 12:03:37,433 - ERROR - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/ren/Workspace/cloud/cst8919/lab2/app.py", line 35, in login
+    flash('Invalid username or password', 'error')
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/helpers.py", line 323, in flash
+    session["_flashes"] = flashes
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/sessions.py", line 102, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-15 12:03:37,639 - WARNING - Failed login attempt - Username: admin
+2025-06-15 12:03:37,641 - ERROR - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/ren/Workspace/cloud/cst8919/lab2/app.py", line 35, in login
+    flash('Invalid username or password', 'error')
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/helpers.py", line 323, in flash
+    session["_flashes"] = flashes
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/sessions.py", line 102, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-15 12:03:37,837 - WARNING - Failed login attempt - Username: admin
+2025-06-15 12:03:37,839 - ERROR - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/ren/Workspace/cloud/cst8919/lab2/app.py", line 35, in login
+    flash('Invalid username or password', 'error')
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/helpers.py", line 323, in flash
+    session["_flashes"] = flashes
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/sessions.py", line 102, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-15 12:03:38,021 - WARNING - Failed login attempt - Username: admin
+2025-06-15 12:03:38,022 - ERROR - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/ren/Workspace/cloud/cst8919/lab2/app.py", line 35, in login
+    flash('Invalid username or password', 'error')
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/helpers.py", line 323, in flash
+    session["_flashes"] = flashes
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/sessions.py", line 102, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-15 12:03:38,216 - WARNING - Failed login attempt - Username: admin
+2025-06-15 12:03:38,216 - ERROR - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/ren/Workspace/cloud/cst8919/lab2/app.py", line 35, in login
+    flash('Invalid username or password', 'error')
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/helpers.py", line 323, in flash
+    session["_flashes"] = flashes
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/sessions.py", line 102, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-15 12:03:54,153 - WARNING - Failed login attempt - Username: admin
+2025-06-15 12:03:54,154 - ERROR - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/ren/Workspace/cloud/cst8919/lab2/app.py", line 35, in login
+    flash('Invalid username or password', 'error')
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/helpers.py", line 323, in flash
+    session["_flashes"] = flashes
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/sessions.py", line 102, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-15 12:03:55,419 - WARNING - Failed login attempt - Username: admin
+2025-06-15 12:03:55,419 - ERROR - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/ren/Workspace/cloud/cst8919/lab2/app.py", line 35, in login
+    flash('Invalid username or password', 'error')
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/helpers.py", line 323, in flash
+    session["_flashes"] = flashes
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/sessions.py", line 102, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-15 12:04:43,716 - WARNING - Failed login attempt - Username: admin
+2025-06-15 12:04:43,717 - ERROR - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/ren/Workspace/cloud/cst8919/lab2/app.py", line 35, in login
+    flash('Invalid username or password', 'error')
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/helpers.py", line 323, in flash
+    session["_flashes"] = flashes
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/sessions.py", line 102, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-15 12:06:47,328 - ERROR - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/ren/Workspace/cloud/cst8919/lab2/app.py", line 35, in login
+    flash('Invalid username or password', 'error')
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/helpers.py", line 323, in flash
+    session["_flashes"] = flashes
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/sessions.py", line 102, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-15 12:06:48,650 - ERROR - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/ren/Workspace/cloud/cst8919/lab2/app.py", line 35, in login
+    flash('Invalid username or password', 'error')
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/helpers.py", line 323, in flash
+    session["_flashes"] = flashes
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/sessions.py", line 102, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-15 12:06:49,094 - ERROR - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/ren/Workspace/cloud/cst8919/lab2/app.py", line 35, in login
+    flash('Invalid username or password', 'error')
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/helpers.py", line 323, in flash
+    session["_flashes"] = flashes
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/sessions.py", line 102, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-15 12:06:49,366 - ERROR - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/ren/Workspace/cloud/cst8919/lab2/app.py", line 35, in login
+    flash('Invalid username or password', 'error')
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/helpers.py", line 323, in flash
+    session["_flashes"] = flashes
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/sessions.py", line 102, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-15 12:06:49,513 - ERROR - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/ren/Workspace/cloud/cst8919/lab2/app.py", line 35, in login
+    flash('Invalid username or password', 'error')
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/helpers.py", line 323, in flash
+    session["_flashes"] = flashes
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/sessions.py", line 102, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-15 12:06:49,713 - ERROR - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/ren/Workspace/cloud/cst8919/lab2/app.py", line 35, in login
+    flash('Invalid username or password', 'error')
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/helpers.py", line 323, in flash
+    session["_flashes"] = flashes
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/sessions.py", line 102, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-15 12:06:49,915 - ERROR - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/ren/Workspace/cloud/cst8919/lab2/app.py", line 35, in login
+    flash('Invalid username or password', 'error')
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/helpers.py", line 323, in flash
+    session["_flashes"] = flashes
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/sessions.py", line 102, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-15 12:06:50,080 - ERROR - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/ren/Workspace/cloud/cst8919/lab2/app.py", line 35, in login
+    flash('Invalid username or password', 'error')
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/helpers.py", line 323, in flash
+    session["_flashes"] = flashes
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/sessions.py", line 102, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-15 12:06:50,349 - ERROR - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/ren/Workspace/cloud/cst8919/lab2/app.py", line 35, in login
+    flash('Invalid username or password', 'error')
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/helpers.py", line 323, in flash
+    session["_flashes"] = flashes
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/sessions.py", line 102, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-15 12:07:04,922 - ERROR - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/ren/Workspace/cloud/cst8919/lab2/app.py", line 35, in login
+    flash('Invalid username or password', 'error')
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/helpers.py", line 323, in flash
+    session["_flashes"] = flashes
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/sessions.py", line 102, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-15 12:09:18,911 - ERROR - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/ren/Workspace/cloud/cst8919/lab2/app.py", line 35, in login
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/helpers.py", line 323, in flash
+    session["_flashes"] = flashes
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/sessions.py", line 102, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-15 12:09:19,730 - ERROR - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/ren/Workspace/cloud/cst8919/lab2/app.py", line 35, in login
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/helpers.py", line 323, in flash
+    session["_flashes"] = flashes
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/sessions.py", line 102, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-15 12:09:19,964 - ERROR - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/ren/Workspace/cloud/cst8919/lab2/app.py", line 35, in login
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/helpers.py", line 323, in flash
+    session["_flashes"] = flashes
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/sessions.py", line 102, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-15 12:09:20,119 - ERROR - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/ren/Workspace/cloud/cst8919/lab2/app.py", line 35, in login
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/helpers.py", line 323, in flash
+    session["_flashes"] = flashes
+  File "/Users/ren/.pyenv/versions/3.10.13/lib/python3.10/site-packages/flask/sessions.py", line 102, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-15 12:16:17,780 - INFO - Successful login attempt - Username: admin
+2025-06-15 12:16:23,405 - WARNING - Failed login attempt - Username: admin
+2025-06-15 12:16:39,982 - WARNING - Failed login attempt - Username: add
+2025-06-15 12:16:46,177 - INFO - Successful login attempt - Username: admin
+2025-06-15 12:16:51,514 - WARNING - Failed login attempt - Username: admin
+2025-06-15 12:19:42,950 - INFO - Successful login attempt - Username: admin
+2025-06-15 12:19:50,751 - WARNING - Failed login attempt - Username: admin
+2025-06-15 12:19:55,367 - WARNING - Failed login attempt - Username: sdfasfdasd
+2025-06-15 12:21:53,085 - INFO - Successful login attempt - Username: admin
+2025-06-15 12:22:15,733 - INFO - Successful login attempt - Username: admin
+2025-06-15 12:22:23,842 - WARNING - Failed login attempt - Username: admin
+2025-06-15 12:22:33,591 - INFO - Successful login attempt - Username: admin
+2025-06-15 12:23:32,379 - INFO - Successful login attempt - Username: admin
