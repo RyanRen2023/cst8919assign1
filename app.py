@@ -105,56 +105,50 @@ def login():
         state=request.args.get('next', '/')
     )
 
-    if request.method == 'POST':
-        username = request.form.get('username')
-        password = request.form.get('password')
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(
+        "https://"
+        + env.get("AUTH0_DOMAIN")
+        + "/v2/logout?"
+        + urlencode(
+            {
+                "returnTo": url_for("home", _external=True),
+                "client_id": env.get("AUTH0_CLIENT_ID"),
+            },
+            quote_via=quote_plus,
+        )
+    )
+
+    # if request.method == 'POST':
+    #     username = request.form.get('username')
+    #     password = request.form.get('password')
         
-        if username == VALID_USERNAME and password == VALID_PASSWORD:
-            # Multiple logging methods to ensure it works
-            message = f"Successful login attempt - Username: {username}"
-            app.logger.info(message)
-            print(message, file=sys.stdout, flush=True)
+    #     if username == VALID_USERNAME and password == VALID_PASSWORD:
+    #         # Multiple logging methods to ensure it works
+    #         message = f"Successful login attempt - Username: {username}"
+    #         app.logger.info(message)
+    #         print(message, file=sys.stdout, flush=True)
             
-            flash('Login successful!', 'success')
-            return render_template('success.html')
-        else:
-            message = f"Failed login attempt - Username: {username}"
-            app.logger.warning(message)
-            print(message, file=sys.stderr, flush=True)
+    #         flash('Login successful!', 'success')
+    #         return render_template('success.html')
+    #     else:
+    #         message = f"Failed login attempt - Username: {username}"
+    #         app.logger.warning(message)
+    #         print(message, file=sys.stderr, flush=True)
             
-            flash('Invalid username or password', 'error')
+    #         flash('Invalid username or password', 'error')
             
-    return render_template('login.html')
+    # return render_template('login.html')
 
-@app.route('/test-logging')
-def test_logging():
-    """Test route to verify logging is working"""
-    import time
-    timestamp = time.strftime('%Y-%m-%d %H:%M:%S')
-    
-    messages = [
-        f"[{timestamp}] TEST: App logger info",
-        f"[{timestamp}] TEST: Direct stderr output"
-    ]
-    
-    for msg in messages:
-        app.logger.info(msg)
-        print(msg, file=sys.stderr, flush=True)
-    
-    return f"Logging test completed at {timestamp} - Check your Azure logs!"
+@app.route("/protected")
+def protected():
+    if "user" not in session:
+        return redirect(url_for('login', next=request.path))
+    return render_template("protected.html", session=session.get("user"), pretty=json.dumps(session.get("user"), indent=4))
 
-@app.route('/server-info')
-def server_info():
-    import os
-    server_software = os.environ.get('SERVER_SOFTWARE', 'Unknown')
-    wsgi_server = os.environ.get('WSGI_SERVER', 'Unknown')
-    
-    # Log and return server info
-    info = f"Server Software: {server_software}, WSGI Server: {wsgi_server}"
-    app.logger.info(info)
-    print(f"SERVER INFO: {info}", file=sys.stderr, flush=True)
-    
-    return info
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=env.get("PORT", 3000))
