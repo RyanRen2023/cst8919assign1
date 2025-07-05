@@ -88,7 +88,13 @@ oauth.register(
 
 @app.route('/')
 def home():
-    return redirect(url_for('login'))
+    app.logger.info("Home page accessed")
+    if "user" in session:
+        app.logger.info("User is logged in")
+        return redirect(url_for('protected'))
+    else:
+        app.logger.info("User is not logged in")
+        return redirect(url_for('login'))
 
 @app.route('/callback')
 def callback():
