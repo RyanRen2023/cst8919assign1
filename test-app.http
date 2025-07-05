@@ -6,12 +6,11 @@ Accept: text/html
 
 username=admin&password=wrongpassword
 
-### Test Login with Valid Credentials
-POST https://lab2login-anh5c9eng9gsbka0.canadacentral-01.azurewebsites.net/login
+### Test protected page with invalid credentials
+GET https://lab3app-cmexg5hfasf3dscg.eastus-01.azurewebsites.net/protected
 Content-Type: application/x-www-form-urlencoded
 Accept: text/html
 
-username=admin&password=password123
 
 
 

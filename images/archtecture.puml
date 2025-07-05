@@ -1,0 +1,23 @@
+@startuml architecture
+skinparam monochrome true
+skinparam defaultTextAlignment center
+skinparam rectangle {
+  BackgroundColor white
+  BorderColor black
+}
+
+' Define components
+rectangle "User\nBrowser" as UserBrowser
+rectangle "Flask App\n(Auth0)" as FlaskApp
+rectangle "Auth0\nIdentity" as Auth0
+rectangle "Azure App\nService" as AzureApp
+rectangle "Azure Monitor\n+ Log Analytics" as Monitor
+rectangle "KQL Queries\n+ Alerts" as KQL
+
+' Define flows
+UserBrowser --> FlaskApp
+FlaskApp --> AzureApp
+FlaskApp --> Auth0
+AzureApp --> Monitor
+Monitor --> KQL
+@enduml
