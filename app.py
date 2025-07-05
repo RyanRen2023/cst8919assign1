@@ -159,8 +159,21 @@ def login():
 
 @app.route("/logout")
 def logout():
+    # Get client IP address for logging
+    client_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
+    timestamp = datetime.now().isoformat()
+    
+    # Log user details before clearing session
+    if "user" in session:
+        user_info = session.get("user", {}).get('userinfo', {})
+        user_id = user_info.get('sub', 'unknown')
+        email = user_info.get('email', 'unknown')
+        app.logger.info(f"cst8919-lab3: User logged out - User ID: {user_id}, Email: {email}, IP: {client_ip}, Timestamp: {timestamp}")
+    else:
+        app.logger.info(f"cst8919-lab3: Logout attempted without active session - IP: {client_ip}, Timestamp: {timestamp}")
+    
     session.clear()
-    app.logger.info("cst8919-lab3: User logged out")
+    
     return redirect(
         "https://"
         + env.get("AUTH0_DOMAIN")
@@ -174,32 +187,25 @@ def logout():
         )
     )
 
-    # if request.method == 'POST':
-    #     username = request.form.get('username')
-    #     password = request.form.get('password')
-        
-    #     if username == VALID_USERNAME and password == VALID_PASSWORD:
-    #         # Multiple logging methods to ensure it works
-    #         message = f"Successful login attempt - Username: {username}"
-    #         app.logger.info(message)
-    #         print(message, file=sys.stdout, flush=True)
-            
-    #         flash('Login successful!', 'success')
-    #         return render_template('success.html')
-    #     else:
-    #         message = f"Failed login attempt - Username: {username}"
-    #         app.logger.warning(message)
-    #         print(message, file=sys.stderr, flush=True)
-            
-    #         flash('Invalid username or password', 'error')
-            
-    # return render_template('login.html')
 
 @app.route("/protected")
 def protected():
-    app.logger.info("cst8919-lab3: Protected page accessed")
+    # Get client IP address for logging
+    client_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
+    timestamp = datetime.now().isoformat()
+    
     if "user" not in session:
+        # Log unauthorized access attempt
+        app.logger.warning(f"cst8919-lab3: Unauthorized access attempt to /protected - IP: {client_ip}, Timestamp: {timestamp}")
         return redirect(url_for('login', next=request.path))
+    
+    # Log authorized access to protected route
+    user_info = session.get("user", {}).get('userinfo', {})
+    user_id = user_info.get('sub', 'unknown')
+    email = user_info.get('email', 'unknown')
+    
+    app.logger.info(f"cst8919-lab3: Authorized access to /protected - User ID: {user_id}, Email: {email}, IP: {client_ip}, Timestamp: {timestamp}")
+    
     return render_template("protected.html", session=session.get("user"), pretty=json.dumps(session.get("user"), indent=4))
 
 
