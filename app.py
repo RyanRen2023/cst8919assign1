@@ -99,14 +99,59 @@ def home():
 @app.route('/callback')
 def callback():
     app.logger.info("cst8919-lab3: Callback page accessed")
-    token = oauth.auth0.authorize_access_token()
-    session["user"] = token
-    return redirect(request.args.get('state', '/'))
+    
+    # Get client IP address for logging
+    client_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
+    
+    # Check for Auth0 error parameters first
+    error = request.args.get('error')
+    error_description = request.args.get('error_description', '')
+    
+    if error:
+        # Auth0 returned an error
+        timestamp = datetime.now().isoformat()
+        app.logger.error(f"cst8919-lab3: Auth0 login failed - Error: {error}, Description: {error_description}, IP: {client_ip}, Timestamp: {timestamp}")
+        return redirect(url_for('login', error='auth0_error'))
+    
+    try:
+        token = oauth.auth0.authorize_access_token()
+        session["user"] = token
+        
+        # Extract user information from token
+        user_info = token.get('userinfo', {})
+        user_id = user_info.get('sub', 'unknown')
+        email = user_info.get('email', 'unknown')
+        timestamp = datetime.now().isoformat()
+        
+        # Log successful login with user details
+        app.logger.info(f"cst8919-lab3: Successful login - User ID: {user_id}, Email: {email}, IP: {client_ip}, Timestamp: {timestamp}")
+        
+        return redirect(request.args.get('state', '/'))
+        
+    except Exception as e:
+        # Log failed login attempt
+        timestamp = datetime.now().isoformat()
+        error_message = str(e)
+        app.logger.error(f"cst8919-lab3: Login failed - Error: {error_message}, IP: {client_ip}, Timestamp: {timestamp}")
+        
+        # Redirect to login page with error
+        return redirect(url_for('login', error='authentication_failed'))
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     app.logger.info("cst8919-lab3: Login page accessed")
+    
+    # Check if there was an authentication error
+    error = request.args.get('error')
+    if error:
+        app.logger.warning(f"cst8919-lab3: Login page accessed with error: {error}")
+        
+        # Log additional error details if available
+        error_description = request.args.get('error_description', '')
+        if error_description:
+            app.logger.warning(f"cst8919-lab3: Error description: {error_description}")
+    
     return oauth.auth0.authorize_redirect(
         redirect_uri=url_for("callback", _external=True),
         state=request.args.get('next', '/')
