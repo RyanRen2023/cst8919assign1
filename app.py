@@ -67,13 +67,9 @@ def setup_logging():
 setup_logging()
 
 # Test that logging is working
-app.logger.info("cst8919-lab3: Flask application logging configured successfully")
+app.logger.info("cst8919-assign-1: Flask application logging configured successfully")
 
-# Dummy user credentials for demonstration
-VALID_USERNAME = "admin"
-VALID_PASSWORD = "password123"
-
-
+# Register OAuth with Auth0
 oauth = OAuth(app)
 
 oauth.register(
@@ -88,7 +84,7 @@ oauth.register(
 
 @app.route('/')
 def home():
-    app.logger.info("cst8919-lab3: Home page accessed")
+    app.logger.info("cst8919-assign-1: Home page accessed")
     if "user" in session:
         app.logger.info("success: User is logged in redirecting to protected page")
         return redirect(url_for('protected'))
@@ -98,7 +94,7 @@ def home():
 
 @app.route('/callback')
 def callback():
-    app.logger.info("cst8919-lab3: Callback page accessed")
+    app.logger.info("cst8919-assign-1: Callback page accessed")
     
     # Get client IP address for logging
     client_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
@@ -110,12 +106,13 @@ def callback():
     if error:
         # Auth0 returned an error
         timestamp = datetime.now().isoformat()
-        app.logger.error(f"cst8919-lab3: Auth0 login failed - Error: {error}, Description: {error_description}, IP: {client_ip}, Timestamp: {timestamp}")
+        app.logger.error(f"cst8919-assign-1: Auth0 login failed - Error: {error}, Description: {error_description}, IP: {client_ip}, Timestamp: {timestamp}")
         return redirect(url_for('login', error='auth0_error'))
     
     try:
         token = oauth.auth0.authorize_access_token()
         session["user"] = token
+        print("cst8919-assign-1: Auth0 Token:", token)
         
         # Extract user information from token
         user_info = token.get('userinfo', {})
@@ -124,7 +121,7 @@ def callback():
         timestamp = datetime.now().isoformat()
         
         # Log successful login with user details
-        app.logger.info(f"cst8919-lab3: Successful login - User ID: {user_id}, Email: {email}, IP: {client_ip}, Timestamp: {timestamp}")
+        app.logger.info(f"cst8919-assign-1: Successful login - User ID: {user_id}, Email: {email}, IP: {client_ip}, Timestamp: {timestamp}")
         
         return redirect(request.args.get('state', '/'))
         
@@ -132,7 +129,7 @@ def callback():
         # Log failed login attempt
         timestamp = datetime.now().isoformat()
         error_message = str(e)
-        app.logger.error(f"cst8919-lab3: Login failed - Error: {error_message}, IP: {client_ip}, Timestamp: {timestamp}")
+        app.logger.error(f"cst8919-assign-1: Login failed - Error: {error_message}, IP: {client_ip}, Timestamp: {timestamp}")
         
         # Redirect to login page with error
         return redirect(url_for('login', error='authentication_failed'))
@@ -140,17 +137,17 @@ def callback():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    app.logger.info("cst8919-lab3: Login page accessed")
+    app.logger.info("cst8919-assign-1: Login page accessed")
     
     # Check if there was an authentication error
     error = request.args.get('error')
     if error:
-        app.logger.warning(f"cst8919-lab3: Login page accessed with error: {error}")
+        app.logger.warning(f"cst8919-assign-1: Login page accessed with error: {error}")
         
         # Log additional error details if available
         error_description = request.args.get('error_description', '')
         if error_description:
-            app.logger.warning(f"cst8919-lab3: Error description: {error_description}")
+            app.logger.warning(f"cst8919-assign-1: Error description: {error_description}")
     
     return oauth.auth0.authorize_redirect(
         redirect_uri=url_for("callback", _external=True),
@@ -168,9 +165,9 @@ def logout():
         user_info = session.get("user", {}).get('userinfo', {})
         user_id = user_info.get('sub', 'unknown')
         email = user_info.get('email', 'unknown')
-        app.logger.info(f"cst8919-lab3: User logged out - User ID: {user_id}, Email: {email}, IP: {client_ip}, Timestamp: {timestamp}")
+        app.logger.info(f"cst8919-assign-1: User logged out - User ID: {user_id}, Email: {email}, IP: {client_ip}, Timestamp: {timestamp}")
     else:
-        app.logger.info(f"cst8919-lab3: Logout attempted without active session - IP: {client_ip}, Timestamp: {timestamp}")
+        app.logger.info(f"cst8919-assign-1: Logout attempted without active session - IP: {client_ip}, Timestamp: {timestamp}")
     
     session.clear()
     
@@ -196,7 +193,7 @@ def protected():
     
     if "user" not in session:
         # Log unauthorized access attempt
-        app.logger.warning(f"cst8919-lab3: Unauthorized access attempt to /protected - IP: {client_ip}, Timestamp: {timestamp}")
+        app.logger.warning(f"cst8919-assign-1: Unauthorized access attempt to /protected - IP: {client_ip}, Timestamp: {timestamp}")
         return redirect(url_for('login', next=request.path))
     
     # Log authorized access to protected route
@@ -204,7 +201,7 @@ def protected():
     user_id = user_info.get('sub', 'unknown')
     email = user_info.get('email', 'unknown')
     
-    app.logger.info(f"cst8919-lab3: Authorized access to /protected - User ID: {user_id}, Email: {email}, IP: {client_ip}, Timestamp: {timestamp}")
+    app.logger.info(f"cst8919-assign-1: Authorized access to /protected - User ID: {user_id}, Email: {email}, IP: {client_ip}, Timestamp: {timestamp}")
     
     return render_template("protected.html", session=session.get("user"), pretty=json.dumps(session.get("user"), indent=4))
 
