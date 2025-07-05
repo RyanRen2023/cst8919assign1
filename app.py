@@ -90,14 +90,15 @@ oauth.register(
 def home():
     app.logger.info("Home page accessed")
     if "user" in session:
-        app.logger.info("User is logged in")
+        app.logger.info("success: User is logged in redirecting to protected page")
         return redirect(url_for('protected'))
     else:
-        app.logger.info("User is not logged in")
+        app.logger.info("failed: User is not logged in redirecting to login page")
         return redirect(url_for('login'))
 
 @app.route('/callback')
 def callback():
+    app.logger.info("Callback page accessed")
     token = oauth.auth0.authorize_access_token()
     session["user"] = token
     return redirect(request.args.get('state', '/'))
@@ -105,7 +106,7 @@ def callback():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-
+    app.logger.info("Login page accessed")
     return oauth.auth0.authorize_redirect(
         redirect_uri=url_for("callback", _external=True),
         state=request.args.get('next', '/')
@@ -114,6 +115,7 @@ def login():
 @app.route("/logout")
 def logout():
     session.clear()
+    app.logger.info("User logged out")
     return redirect(
         "https://"
         + env.get("AUTH0_DOMAIN")
