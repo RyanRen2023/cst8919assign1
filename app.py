@@ -67,7 +67,7 @@ def setup_logging():
 setup_logging()
 
 # Test that logging is working
-app.logger.info("Flask application logging configured successfully")
+app.logger.info("cst8919-lab3: Flask application logging configured successfully")
 
 # Dummy user credentials for demonstration
 VALID_USERNAME = "admin"
@@ -88,7 +88,7 @@ oauth.register(
 
 @app.route('/')
 def home():
-    app.logger.info("Home page accessed")
+    app.logger.info("cst8919-lab3: Home page accessed")
     if "user" in session:
         app.logger.info("success: User is logged in redirecting to protected page")
         return redirect(url_for('protected'))
@@ -98,7 +98,7 @@ def home():
 
 @app.route('/callback')
 def callback():
-    app.logger.info("Callback page accessed")
+    app.logger.info("cst8919-lab3: Callback page accessed")
     token = oauth.auth0.authorize_access_token()
     session["user"] = token
     return redirect(request.args.get('state', '/'))
@@ -106,7 +106,7 @@ def callback():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    app.logger.info("Login page accessed")
+    app.logger.info("cst8919-lab3: Login page accessed")
     return oauth.auth0.authorize_redirect(
         redirect_uri=url_for("callback", _external=True),
         state=request.args.get('next', '/')
@@ -115,7 +115,7 @@ def login():
 @app.route("/logout")
 def logout():
     session.clear()
-    app.logger.info("User logged out")
+    app.logger.info("cst8919-lab3: User logged out")
     return redirect(
         "https://"
         + env.get("AUTH0_DOMAIN")
@@ -152,6 +152,7 @@ def logout():
 
 @app.route("/protected")
 def protected():
+    app.logger.info("cst8919-lab3: Protected page accessed")
     if "user" not in session:
         return redirect(url_for('login', next=request.path))
     return render_template("protected.html", session=session.get("user"), pretty=json.dumps(session.get("user"), indent=4))
