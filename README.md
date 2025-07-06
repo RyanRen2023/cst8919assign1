@@ -2,11 +2,11 @@
 
 A production-ready secure Flask application that demonstrates SSO authentication with Auth0, comprehensive user activity logging, and Azure Monitor integration for security monitoring and alerting.
 
-## 🎯 Project Overview
+## Project Overview
 
 This project combines the SSO implementation from Lab 1 with Azure deployment and monitoring from Lab 2 to create a secure, production-ready application. The app demonstrates secure integration between identity management (Auth0) and observability systems (Azure Monitor) for detecting suspicious user activities.
 
-## ✨ Features
+## Features
 
 - **SSO Authentication**: Secure single sign-on using Auth0
 - **Comprehensive Logging**: Detailed user activity tracking
@@ -15,12 +15,9 @@ This project combines the SSO implementation from Lab 1 with Azure deployment an
 - **Alert System**: Automated notifications for security events
 - **Production Ready**: Secure configuration and best practices
 
+## Architecture
 
-
-## 🏗️ Architecture
-
-![Archtecture](images/architecture.png)
-
+![Architecture](images/architecture.png)
 
 ## 📋 Prerequisites
 
@@ -30,7 +27,7 @@ This project combines the SSO implementation from Lab 1 with Azure deployment an
 - GitHub account
 - Azure CLI (optional)
 
-## 🚀 Setup Instructions
+## Setup Instructions
 
 ### 1. Auth0 Configuration
 
@@ -45,16 +42,28 @@ This project combines the SSO implementation from Lab 1 with Azure deployment an
    - Allowed Logout URLs: `http://your-app-name.azurewebsites.net`
    - Allowed Web Origins: `http://your-app-name.azurewebsites.net`
 
+#### Auth0 Basic Settings
+![Auth0 Basic Settings](images/auth0-basic.png)
+
+#### Auth0 URL Configuration
+![Auth0 URL Configuration](images/auth0-url.png)
+
 ### 2. Azure Setup
 
 1. Create Azure App Service:
-  
+
 2. Enable Application Logging:
 
 3. Configure Log Analytics:
    - Create Log Analytics workspace
    - Enable AppServiceConsoleLogs collection
    - Link to App Service
+
+#### App Service Environment variables Configuration
+![App Service Environment](images/app-environments.png)
+
+#### Diagnostic Settings
+![Diagnostic Settings](images/Diagnostic setting.png)
 
 ### 3. Environment Configuration
 
@@ -67,7 +76,6 @@ This project combines the SSO implementation from Lab 1 with Azure deployment an
    ```
 
 2. Set Azure App Settings:
-  
 
 ### 4. Local Development
 
@@ -93,26 +101,29 @@ This project combines the SSO implementation from Lab 1 with Azure deployment an
    python app.py
    ```
 
-## 📊 Logging Implementation
+## Logging Implementation
 
 The application implements comprehensive logging for security monitoring:
 
 ### Login Events
 ```python
 # Successful login
-app.logger.info(f"cst8919-lab3: Successful login - User ID: {user_id}, Email: {email}, IP: {client_ip}, Timestamp: {timestamp}")
+app.logger.info(f"cst8919-assign-1: Successful login - User ID: {user_id}, Email: {email}, IP: {client_ip}, Timestamp: {timestamp}")
+
 
 # Failed login
-app.logger.error(f"cst8919-lab3: Login failed - Error: {error_message}, IP: {client_ip}, Timestamp: {timestamp}")
+app.logger.error(f"cst8919-assign-1: Auth0 login failed - Error: {error}, Description: {error_description}, IP: {client_ip}, Timestamp: {timestamp}")
+
 ```
 
 ### Protected Route Access
 ```python
 # Authorized access
-app.logger.info(f"cst8919-lab3: Authorized access to /protected - User ID: {user_id}, Email: {email}, IP: {client_ip}, Timestamp: {timestamp}")
+app.logger.info(f"cst8919-assign-1: Authorized access to /protected - User ID: {user_id}, Email: {email}, IP: {client_ip}, Timestamp: {timestamp}")
 
 # Unauthorized access
-app.logger.warning(f"cst8919-lab3: Unauthorized access attempt to /protected - IP: {client_ip}, Timestamp: {timestamp}")
+app.logger.warning(f"cst8919-assign-1: Unauthorized access attempt to /protected - IP: {client_ip}, Timestamp: {timestamp}")
+
 ```
 
 ### Log Levels
@@ -120,7 +131,7 @@ app.logger.warning(f"cst8919-lab3: Unauthorized access attempt to /protected - I
 - **WARNING**: Unauthorized access attempts, login errors
 - **ERROR**: Login failures, system exceptions
 
-## 🔍 Security Monitoring
+## Security Monitoring
 
 ### KQL Query for Excessive Access Detection
 
@@ -172,7 +183,13 @@ This query:
    - Description: "User accessed /protected route more than 10 times in 15 minutes"
    - Severity: Low
 
-## 🧪 Testing
+#### Alert Rules Configuration
+![Alert Rules](images/Alert%20rules.png)
+
+#### Alert Fired Notification
+![Alert Fired](images/Alert%20fired.png)
+
+## Testing
 
 ### Test File: `test-app.http`
 
@@ -211,121 +228,8 @@ Authorization: Bearer your_auth_token_here
    - Run KQL queries manually
    - Verify alert notifications
 
-## 📈 Demo Video
+## Demo Video
 
-[Watch the demo video](https://youtu.be/your-demo-video-id) showing:
+[Watch the demo video](https://youtu.be/qcb6nnM-joQ) 
 
-1. **Application Demo** (2 min):
-   - App deployed on Azure with working Auth0 login
-   - User authentication flow
-   - Access to protected routes
-
-2. **Logging Behavior** (3 min):
-   - Real-time log generation
-   - Different log levels and formats
-   - User activity tracking
-
-3. **Azure Monitor** (3 min):
-   - Log Analytics workspace
-   - Running KQL queries
-   - Query results and analysis
-
-4. **Alert System** (2 min):
-   - Alert configuration
-   - Triggered alert demonstration
-   - Email notification (if possible)
-
-## 🤔 Reflection
-
-### What Worked Well
-- Seamless integration between Auth0 and Flask
-- Comprehensive logging captured all required events
-- KQL queries effectively detected suspicious patterns
-- Azure Monitor provided excellent observability
-- Alert system responded quickly to security events
-
-### Challenges Faced
-- Coordinating Auth0 callback URLs with Azure deployment
-- Fine-tuning KQL query to reduce false positives
-- Ensuring consistent log format for parsing
-- Managing environment variables securely
-
-### Improvements for Production
-1. **Enhanced Security**:
-   - Implement rate limiting at application level
-   - Add IP-based blocking after multiple failed attempts
-   - Use Azure Key Vault for secret management
-   - Implement session timeout and management
-
-2. **Better Monitoring**:
-   - Add more sophisticated detection patterns
-   - Implement user behavior analytics
-   - Create dashboards for security metrics
-   - Add automated response actions
-
-3. **Operational Excellence**:
-   - Implement CI/CD pipeline
-   - Add automated testing
-   - Use infrastructure as code
-   - Implement backup and disaster recovery
-
-## 📁 Project Structure
-
-```
-cst8919-assignment1/
-├── app.py                 # Main Flask application
-├── requirements.txt       # Python dependencies
-├── templates/            # HTML templates
-│   ├── index.html
-│   ├── login.html
-│   ├── protected.html
-│   └── success.html
-├── test-app.http         # HTTP test scenarios
-├── deploy.sh             # Azure deployment script
-├── gunicorn.conf.py      # Production server config
-├── startup.sh            # Application startup script
-├── .env.example          # Environment variables template
-├── README.md             # This file
-└── login_attempts.log    # Local log file (development)
-```
-
-## 🔧 Deployment
-
-### Azure App Service Deployment
-
-1. **Using Azure CLI**:
-   ```bash
-   az webapp deployment source config-local-git --name your-app-name --resource-group cst8919-assignment1
-   git remote add azure <git-url-from-above-command>
-   git push azure main
-   ```
-
-2. **Using GitHub Actions** (recommended):
-   - Create `.github/workflows/deploy.yml`
-   - Configure Azure credentials
-   - Enable automatic deployment on push
-
-### Production Considerations
-
-- Use production-grade WSGI server (Gunicorn)
-- Configure proper SSL/TLS certificates
-- Set up monitoring and alerting
-- Implement backup strategies
-- Use Azure Application Insights for additional monitoring
-
-## 📞 Support
-
-For issues or questions:
-- Check the demo video for detailed walkthrough
-- Review Azure Monitor documentation
-- Consult Auth0 documentation for authentication issues
-- Check Flask and Azure App Service logs
-
-## 📄 License
-
-This project is created for educational purposes as part of CST8919 Cloud Security course.
-
----
-
-**Note**: This application is designed for educational demonstration. For production use, implement additional security measures and follow security best practices.
 
