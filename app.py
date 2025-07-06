@@ -190,8 +190,9 @@ def protected():
     # Get client IP address for logging
     client_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
     timestamp = datetime.now().isoformat()
-    
-    if "user" not in session:
+    auth_header = request.headers.get("Authorization", None)
+    hasToken = auth_header and auth_header.startswith("Bearer ")
+    if "user" not in session and not hasToken:
         # Log unauthorized access attempt
         app.logger.warning(f"cst8919-assign-1: Unauthorized access attempt to /protected - IP: {client_ip}, Timestamp: {timestamp}")
         return redirect(url_for('login', next=request.path))

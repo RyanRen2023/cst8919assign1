@@ -1,13 +1,11 @@
 ## Azure test
-### Test protected page with valid credentials
-GET https://lab3app-cmexg5hfasf3dscg.eastus-01.azurewebsites.net/protected
-Content-Type: application/x-www-form-urlencoded
-Accept: text/html
-
-username=admin&password=wrongpassword
+### Test protected page with valid Auth0 credentials
+GET https://assign1app-bgfegmafbgh4caef.canadacentral-01.azurewebsites.net/protected
+Authorization: Bearer YOUR_AUTH0_ACCESS_TOKEN
+Accept: application/json
 
 ### Test protected page with invalid credentials
-GET https://lab3app-cmexg5hfasf3dscg.eastus-01.azurewebsites.net/protected
+GET https://assign1app-bgfegmafbgh4caef.canadacentral-01.azurewebsites.net/protected
 Content-Type: application/x-www-form-urlencoded
 Accept: text/html
 
