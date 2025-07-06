@@ -112,7 +112,7 @@ def callback():
     try:
         token = oauth.auth0.authorize_access_token()
         session["user"] = token
-        print("cst8919-assign-1: Auth0 Token:", token)
+        print("cst8919-assign-1: Auth0 Token:", token['access_token'])
         
         # Extract user information from token
         user_info = token.get('userinfo', {})
